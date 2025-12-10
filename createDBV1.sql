@@ -10,10 +10,9 @@ CREATE TABLE members (
 
 CREATE TABLE attendance_log (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    member_id INT NOT NULL,
+     member_name VARCHAR(100) NOT NULL,
     action ENUM('check_in', 'check_out') NOT NULL,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (member_id) REFERENCES members(member_id)
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 

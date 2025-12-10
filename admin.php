@@ -1,6 +1,15 @@
 <?php
 include 'db.php';
 
+$in = mysqli_query($conn, "SELECT COUNT(*) FROM attendance_log WHERE action='check_in'");
+$in = mysqli_fetch_row($in)[0];
+
+$out = mysqli_query($conn, "SELECT COUNT(*) FROM attendance_log WHERE action='check_out'");
+$out = mysqli_fetch_row($out)[0];
+
+$current_capacity = $in - $out;
+
+
 $result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp DESC");
 ?>
 <!DOCTYPE html>
@@ -99,6 +108,7 @@ $result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp D
     </tr>
     <?php } ?>
 
+    <h3>Current Gym Capacity: <?php echo $current_capacity; ?></h3>
 </table>
 
 <a href="checkin.php">Record a Check-In</a>
