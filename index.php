@@ -65,10 +65,9 @@ header {
 
 <div class="container">
 
-    <h2>Welcome</h2>
-    <p>Select an action below:</p>
+    <h1>Welcome</h1>
+    
 
-    <a href="checkin.php" class="menu-btn">Record a Check-In</a>
     <a href="admin.php" class="menu-btn admin-btn">Admin Login</a>
 </div>
 

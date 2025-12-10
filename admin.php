@@ -90,20 +90,21 @@ $result = mysqli_query($conn, "SELECT * FROM attendance ORDER BY event_time DESC
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
     <tr>
         <td><?php echo $row['id']; ?></td>
+        <td><?php echo $row['member_name']; ?></td>
         <td class="<?php echo $row['action']; ?>">
             <?php echo ucfirst($row['action']); ?>
         </td>
-        <td><?php echo $row['event_time']; ?></td>
+        <td><?php echo $row['timestamp']; ?></td>
     </tr>
     <?php } ?>
 
 </table>
 
-<a href="index.php">Back to Main</a>
+<a href="checkin.php">Record a Check-In</a>
 
 <div class="menu">
-    <a href="checkin.php">Record a Check-In</a>
-
+    
+        <a href="index.php">Back to Main</a>
 </div>
 
 </body>
