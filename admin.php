@@ -1,11 +1,11 @@
 <?php
 include 'db.php';
 
-$in = mysqli_query($conn, "SELECT COUNT(*) FROM attendance_log WHERE action='check_in'");
-$in = mysqli_fetch_row($in)[0];
+$inQuery = mysqli_query($conn, "SELECT * FROM attendance_log WHERE action='check_in'");
+$in = mysqli_num_rows($inQuery);
 
-$out = mysqli_query($conn, "SELECT COUNT(*) FROM attendance_log WHERE action='check_out'");
-$out = mysqli_fetch_row($out)[0];
+$outQuery = mysqli_query($conn, "SELECT * FROM attendance_log WHERE action='check_out'");
+$out = mysqli_num_rows($outQuery);
 
 $current_capacity = $in - $out;
 
@@ -123,6 +123,10 @@ input[type="submit"]:hover {
         <th>Action</th>
         <th>Name</th>
         <th>Timestamp</th>
+        <th>Area</th>
+        <th>Membership</th>
+        <th>Equipment</th>
+        <th>Energy</th>
         <th>Options</th>
     </tr>
 
@@ -133,7 +137,16 @@ input[type="submit"]:hover {
     <td><?php echo $row['member_name']; ?></td>
     <td><?php echo $row['timestamp']; ?></td>
 
-    <td>
+
+
+
+    <!-- EXTRA FIELDS -->
+    <td><?php echo $row['area']; ?></td>
+    <td><?php echo $row['membership']; ?></td>
+    <td><?php echo $row['equipment']; ?></td>
+    <td><?php echo $row['energy_level']; ?></td>
+
+        <td>
         <form method="post" action="actions.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
             <input type="hidden" name="member_name" value="<?php echo $row['member_name']; ?>">
