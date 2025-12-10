@@ -95,18 +95,33 @@ $result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp D
         <th>Action</th>
         <th>Name</th>
         <th>Timestamp</th>
+        <th>Options</th>
     </tr>
 
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-    <tr>
-        <td><?php echo $row['id']; ?></td>
-        <td class="<?php echo $row['action']; ?>">
-            <?php echo ucfirst($row['action']); ?>
-        </td>
-        <td><?php echo $row['member_name']; ?></td>
-        <td><?php echo $row['timestamp']; ?></td>
-    </tr>
-    <?php } ?>
+<tr>
+    <td><?php echo $row['id']; ?></td>
+    <td><?php echo $row['action']; ?></td>
+    <td><?php echo $row['member_name']; ?></td>
+    <td><?php echo $row['timestamp']; ?></td>
+
+    <td>
+        <form method="post" action="actions.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <input type="hidden" name="member_name" value="<?php echo $row['member_name']; ?>">
+
+            <select name="action">
+                <option value="">Choose</option>
+                <option value="checkout">Check Out</option>
+                <option value="delete">Delete</option>
+            </select>
+
+            <input type="submit" value="Go">
+        </form>
+    </td>
+</tr>
+<?php } ?>
+
 
     <h3>Current Gym Capacity: <?php echo $current_capacity; ?></h3>
 </table>
