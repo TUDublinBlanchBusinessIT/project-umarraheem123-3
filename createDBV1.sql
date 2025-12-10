@@ -1,10 +1,9 @@
-CREATE DATABASE gymcapacitydb;
+DROP DATABASE IF EXISTS gym_capacity;
+CREATE DATABASE gym_capacity;
+USE gym_capacity;
 
-USE gymcapacitydb;
-
-CREATE TABLE visits (
+CREATE TABLE attendance (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    person_name VARCHAR(100),
-    check_in_time DATETIME,
-    check_out_time DATETIME
+    action ENUM('enter','exit') NOT NULL,
+    event_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
