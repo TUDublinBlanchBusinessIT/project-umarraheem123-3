@@ -5,26 +5,54 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 30px;
+            background: #f4f4f4;
+            margin: 0;
         }
-        header {
+header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px 0;
             text-align: center;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
         }
-        .menu a {
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .menu-btn {
             display: block;
-            margin: 8px 0;
+            background: #3498db;
+            color: white;
             text-decoration: none;
-            padding: 10px;
-            background: #f2f2f2;
-            width: 200px;
-            text-align: center;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            color: black;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.2s;
         }
-        .menu a:hover {
-            background: #ddd;
+
+        .menu-btn:hover {
+            background: #2980b9;
+        }
+
+        .admin-btn {
+            background: #2ecc71;
+        }
+
+        .admin-btn:hover {
+            background: #27ae60;
         }
     </style>
 </head>
@@ -34,12 +62,14 @@
     <h1>Gym Capacity Tracker</h1>
 </header>
 
-<p>Select an action below:</p>
 
-<div class="menu">
+<div class="container">
 
-    <!-- New Admin Login Button -->
-    <a href="admin.php">Admin Login</a>
+    <h2>Welcome</h2>
+    <p>Select an action below:</p>
+
+    <a href="checkin.php" class="menu-btn">Record a Check-In</a>
+    <a href="admin.php" class="menu-btn admin-btn">Admin Login</a>
 </div>
 
 </body>
