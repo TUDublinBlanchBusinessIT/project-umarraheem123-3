@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "mypassword123";
 $dbname = "gym_capacity";
 $port = 3306;
 

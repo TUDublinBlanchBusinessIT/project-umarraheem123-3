@@ -15,6 +15,16 @@
             display: block;
             margin: 8px 0;
             text-decoration: none;
+            padding: 10px;
+            background: #f2f2f2;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: black;
+        }
+        .menu a:hover {
+            background: #ddd;
         }
     </style>
 </head>
@@ -28,6 +38,9 @@
 
 <div class="menu">
     <a href="checkin.php">Record a Check-In</a>
+
+    <!-- New Admin Login Button -->
+    <a href="admin.php">Admin Login</a>
 </div>
 
 </body>
