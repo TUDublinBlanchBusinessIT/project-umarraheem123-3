@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 
-$result = mysqli_query($conn, "SELECT * FROM attendance ORDER BY event_time DESC");
+$result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp DESC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -84,16 +84,17 @@ $result = mysqli_query($conn, "SELECT * FROM attendance ORDER BY event_time DESC
     <tr>
         <th>ID</th>
         <th>Action</th>
+        <th>Name</th>
         <th>Timestamp</th>
     </tr>
 
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
     <tr>
         <td><?php echo $row['id']; ?></td>
-        <td><?php echo $row['member_name']; ?></td>
         <td class="<?php echo $row['action']; ?>">
             <?php echo ucfirst($row['action']); ?>
         </td>
+        <td><?php echo $row['member_name']; ?></td>
         <td><?php echo $row['timestamp']; ?></td>
     </tr>
     <?php } ?>
