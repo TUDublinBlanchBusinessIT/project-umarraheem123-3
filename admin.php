@@ -81,6 +81,34 @@ $result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp D
         a:hover {
             background: #ddd;
         }
+
+
+        select {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+    font-size: 14px;
+}
+
+select:hover {
+    background: #eee;
+}
+
+input[type="submit"] {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    background: #555;
+}
+
     </style>
 </head>
 <body>
