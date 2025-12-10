@@ -7,3 +7,11 @@ CREATE TABLE attendance (
     action ENUM('enter','exit') NOT NULL,
     event_time DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE attendance_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    member_name VARCHAR(100) NOT NULL,
+    action ENUM('check_in', 'check_out') NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);

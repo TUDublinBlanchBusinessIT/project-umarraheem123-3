@@ -101,6 +101,9 @@ $result = mysqli_query($conn, "SELECT * FROM attendance ORDER BY event_time DESC
 
 <a href="index.php">Back to Main</a>
 
+<div class="menu">
+    <a href="checkin.php">Record a Check-In</a>
+
 </div>
 
 </body>

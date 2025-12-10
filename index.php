@@ -37,7 +37,6 @@
 <p>Select an action below:</p>
 
 <div class="menu">
-    <a href="checkin.php">Record a Check-In</a>
 
     <!-- New Admin Login Button -->
     <a href="admin.php">Admin Login</a>
