@@ -14,7 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
      }
 
-    $sql = "INSERT INTO attendance_log (member_name, action, area, membership, equipment, energy_level) VALUES ('$name', 'check_in' , '$area', '$membership', '$equipment', '$energy')";
+    mysqli_query($conn, "INSERT INTO members (member_name) VALUES ('$name')");
+    $member_id = mysqli_insert_id($conn);
+
+    $sql = "INSERT INTO attendance_log (member_id, member_name, action, area, membership, equipment, energy_level) VALUES ($member_id, '$name', 'check_in' , '$area', '$membership', '$equipment', '$energy')";
     
     mysqli_query($conn, $sql);
     header("Location: admin.php");

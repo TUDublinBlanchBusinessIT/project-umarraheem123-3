@@ -3,12 +3,13 @@ include 'db.php';
 
 $id = $_POST['id'];
 $name = $_POST['member_name'];
+$member_id = $_POST['member_id'];
 $action = $_POST['action'];
 
 if ($action == "checkout") {
 
-    $sql = "INSERT INTO attendance_log (member_name, action) 
-            VALUES ('$name', 'check_out')";
+    $sql = "INSERT INTO attendance_log (member_id, member_name, action) 
+    VALUES ($member_id, '$name', 'check_out')";
     mysqli_query($conn, $sql);
 }
 

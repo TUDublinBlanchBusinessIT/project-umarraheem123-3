@@ -10,7 +10,11 @@ $out = mysqli_num_rows($outQuery);
 $current_capacity = $in - $out;
 
 
-$result = mysqli_query($conn, "SELECT * FROM attendance_log ORDER BY timestamp DESC");
+$result = mysqli_query($conn, "
+    SELECT attendance_log.*, members.member_id
+    FROM attendance_log LEFT JOIN members ON attendance_log.member_name = members.member_name
+    ORDER BY timestamp DESC
+");
 ?>
 <!DOCTYPE html>
 <html>
@@ -150,6 +154,8 @@ input[type="submit"]:hover {
         <form method="post" action="actions.php">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
             <input type="hidden" name="member_name" value="<?php echo $row['member_name']; ?>">
+            <input type="hidden" name="member_id" value="<?php echo $row['member_id']; ?>">
+
 
             <select name="action">
                 <option value="">Choose</option>
